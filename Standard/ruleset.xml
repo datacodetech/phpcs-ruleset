@@ -112,6 +112,7 @@
 	<rule ref="Squiz.PHP.InnerFunctions"/>
 	<rule ref="Squiz.PHP.LowercasePHPFunctions"/>
 	<rule ref="Squiz.PHP.NonExecutableCode"/>
+	<rule ref="./Sniffs/PHP/RequireStrictTypesSniff.php"/>
 
 	<rule ref="Squiz.Scope.MemberVarScope"/>
 	<rule ref="Squiz.Scope.MethodScope"/>
