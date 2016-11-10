@@ -47,15 +47,22 @@ class Standard_Sniffs_Commenting_FunctionCommentSniff extends Squiz_Sniffs_Comme
     {
         $tokens = $phpcsFile->getTokens();
 
+        $find  = PHP_CodeSniffer_Tokens::$methodPrefixes;
+        $find[] = T_WHITESPACE;
+
         $commentEnd = $phpcsFile->findPrevious($find, ($stackPtr - 1), null, true);
         $commentStart = $tokens[$commentEnd]['comment_opener'];
 
         $commentText = $phpcsFile->getTokensAsString($commentStart, ($commentEnd - $commentStart + 1));
+        $commentLines = array_map('trim', explode("\n", $commentText));
 
-        if (stripos($commentText, '{@inheritdoc}') !== false)
+
+        if (count($commentLines) === 3 && $commentLines[1] === '* @inheritDoc')
         {
-            parent::process($phpcsFile, $stackPtr);
+            return;
         }
+
+        parent::process($phpcsFile, $stackPtr);
 
     }//end process()
 

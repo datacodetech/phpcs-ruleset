@@ -39,14 +39,9 @@
 
 	<rule ref="Generic.Commenting.Fixme"/>
 	<rule ref="Generic.Commenting.Todo"/>
+	<rule ref="Squiz.Commenting.EmptyCatchComment"/>
 
-	<rule ref="Standard.Commenting.FunctionComment"/>
-	<!-- Not too bothered about spacing and full stops -->
-	<rule ref="Standard.Commenting.FunctionComment.SpacingAfterParamType"><severity>0</severity></rule>
-	<rule ref="Standard.Commenting.FunctionComment.SpacingAfterParamName"><severity>0</severity></rule>
-	<rule ref="Standard.Commenting.FunctionComment.ThrowsNoFullStop"><severity>0</severity></rule>
-	<rule ref="Standard.Commenting.FunctionComment.ParamCommentFullStop"><severity>0</severity></rule>
-	<rule ref="Standard.Commenting.EmptyCatchComment"/>
+	<rule ref="./Sniffs/Commenting/FunctionCommentSniff.php"/>
 
 	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
 	<rule ref="Squiz.ControlStructures.ControlSignature"/>
