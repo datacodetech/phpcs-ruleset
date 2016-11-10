@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 class Standard_Sniffs_PHP_RequireStrictTypesSniff implements PHP_CodeSniffer_Sniff {
 
 	public function register() {
@@ -9,10 +11,19 @@ class Standard_Sniffs_PHP_RequireStrictTypesSniff implements PHP_CodeSniffer_Sni
 	}
 
 	public function process(PHP_CodeSniffer_File $phpcsFile, $stackPtr) {
-		$fileData = file_get_contents($phpcsFile->getFilename());
+		$tokens = $phpcsFile->getTokens();
 
-		if (strpos($fileData, 'declare(strict_types=1);') === false) {
-			$phpcsFile->addError('declare(strict_types=1); not found in file', $stackPtr, 'NoDeclare');
+		$startPos = $phpcsFile->findNext([ T_DECLARE ], $stackPtr + 1);
+
+		if ($startPos === false) {
+			$phpcsFile->addError('declare statement not found in file', $stackPtr, 'NoDeclare');
+		} else {
+			$endPos = $tokens[$startPos]['parenthesis_closer'];
+			$text = $phpcsFile->getTokensAsString($startPos, ($endPos - $startPos + 1));
+
+			if ($text !== 'declare(strict_types=1)') {
+				$phpcsFile->addError('declare strict_types statement not found in file', $stackPtr, 'NoDeclareStrictTypes');
+			}
 		}
 	}
 
