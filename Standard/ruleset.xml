@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<ruleset name="dataplan">
+	<description>Dataplan code style</description>
+
+	<arg name="tab-width" value="4" />
+	<arg name="encoding" value="UTF-8" />
+
+	<!-- Don't fail builds for warnings, we'll gradually make most of these errors -->
+	<config name="ignore_warnings_on_exit" value="1"/>
+
+	<ini name="short_open_tag" value="off"/>
+
+	<rule ref="Squiz.Arrays.ArrayDeclaration"/>
+	<!-- Don't worry about indentation of arrays -->
+	<rule ref="Squiz.Arrays.ArrayDeclaration.KeyNotAligned"><severity>0</severity></rule>
+	<rule ref="Squiz.Arrays.ArrayDeclaration.ValueNotAligned"><severity>0</severity></rule>
+	<rule ref="Squiz.Arrays.ArrayDeclaration.DoubleArrowNotAligned"><severity>0</severity></rule>
+	<rule ref="Squiz.Arrays.ArrayDeclaration.CloseBraceNotAligned"><severity>0</severity></rule>
+	<!-- Allow multi-line arrays that only contain one value and single-line ones with more than one -->
+	<rule ref="Squiz.Arrays.ArrayDeclaration.MultiLineNotAllowed"><severity>0</severity></rule>
+	<rule ref="Squiz.Arrays.ArrayDeclaration.SingleLineNotAllowed"><severity>0</severity></rule>
+
+	<rule ref="Generic.Classes.DuplicateClassName"/>
+	<rule ref="Squiz.Classes.ClassDeclaration"/>
+	<!-- Openeing brace on the same line instead so use explicit rule for that and hide the new line error -->
+	<rule ref="Generic.Classes.OpeningBraceSameLine"/>
+	<rule ref="Squiz.Classes.ClassDeclaration.OpenBraceNewLine"><severity>0</severity></rule>
+	<rule ref="Squiz.Classes.DuplicateProperty"/>
+	<rule ref="Squiz.Classes.LowercaseClassKeywords"/>
+	<rule ref="Squiz.Classes.SelfMemberReference"/>
+
+	<rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+	<rule ref="Generic.CodeAnalysis.ForLoopWithTestFunctionCall"/>
+	<rule ref="Generic.CodeAnalysis.JumbledIncrementer"/>
+	<rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+	<rule ref="Generic.CodeAnalysis.UnnecessaryFinalModifier"/>
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+	<rule ref="Generic.CodeAnalysis.UselessOverridingMethod"/>
+
+	<rule ref="Generic.Commenting.Fixme"/>
+	<rule ref="Generic.Commenting.Todo"/>
+	<rule ref="Squiz.Commenting.FunctionComment"/>
+	<!-- Not too bothered about spacing and full stops -->
+	<rule ref="Squiz.Commenting.FunctionComment.SpacingAfterParamType"><severity>0</severity></rule>
+	<rule ref="Squiz.Commenting.FunctionComment.SpacingAfterParamName"><severity>0</severity></rule>
+	<rule ref="Squiz.Commenting.FunctionComment.ThrowsNoFullStop"><severity>0</severity></rule>
+	<rule ref="Squiz.Commenting.FunctionComment.ParamCommentFullStop"><severity>0</severity></rule>
+	<rule ref="Squiz.Commenting.EmptyCatchComment"/>
+
+	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
+	<rule ref="Squiz.ControlStructures.ControlSignature"/>
+	<rule ref="Squiz.ControlStructures.ElseIfDeclaration"/>
+	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
+	<rule ref="Squiz.ControlStructures.ForLoopDeclaration"/>
+	<rule ref="Squiz.ControlStructures.InlineIfDeclaration"/>
+	<rule ref="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine"><severity>0</severity></rule>
+	<rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
+
+	<rule ref="Generic.Files.ByteOrderMark"/>
+	<rule ref="Generic.Files.LineEndings"/>
+	<rule ref="Generic.Files.LineLength">
+		<properties>
+			<property name="lineLimit" value="120"/>
+			<property name="absoluteLineLimit" value="200"/>
+		</properties>
+	</rule>
+
+	<rule ref="Squiz.Formatting.OperatorBracket"/>
+
+	<rule ref="Generic.Functions.CallTimePassByReference"/>
+	<rule ref="Generic.Functions.FunctionCallArgumentSpacing"/>
+	<rule ref="Squiz.Functions.FunctionDeclarationArgumentSpacing">
+		<properties>
+			<property name="equalsSpacing" value="1"/>
+		</properties>
+	</rule>
+	<rule ref="Squiz.Functions.FunctionDeclaration"/>
+	<rule ref="Squiz.Functions.MultiLineFunctionDeclaration"/>
+	<!-- This check gets inherited, we don't want it -->
+	<rule ref="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"><severity>0</severity></rule>
+	<rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
+	<rule ref="Squiz.Functions.LowercaseFunctionKeywords"/>
+
+	<rule ref="Generic.Metrics.NestingLevel">
+		<properties>
+			<property name="nestingLevel" value="4"/>
+			<property name="absoluteNestingLevel" value="8"/>
+		</properties>
+	</rule>
+
+	<rule ref="Generic.NamingConventions.ConstructorName"/>
+	<rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
+
+	<rule ref="Generic.PHP.BacktickOperator"/>
+	<rule ref="Generic.PHP.DeprecatedFunctions"/>
+	<rule ref="Generic.PHP.DisallowAlternativePHPTags"/>
+	<rule ref="Generic.PHP.ForbiddenFunctions">
+		<properties>
+			<property
+				name="forbiddenFunctions"
+				type="array"
+				value="sizeof=>count,print=>echo,create_function=>null,eval=>null,mysql_query=>null"/>
+		</properties>
+	</rule>
+	<rule ref="Generic.PHP.LowerCaseConstant"/>
+	<rule ref="Generic.PHP.LowerCaseKeyword"/>
+	<rule ref="Generic.PHP.NoSilencedErrors"/>
+	<rule ref="Generic.PHP.Syntax"/>
+	<rule ref="Squiz.PHP.CommentedOutCode.Found">
+		<type>error</type>
+	</rule>
+	<rule ref="Squiz.PHP.DisallowMultipleAssignments"/>
+	<rule ref="Squiz.PHP.DiscouragedFunctions"/>
+	<rule ref="Squiz.PHP.Eval"/>
+	<rule ref="Squiz.PHP.GlobalKeyword"/>
+	<rule ref="Squiz.PHP.InnerFunctions"/>
+	<rule ref="Squiz.PHP.LowercasePHPFunctions"/>
+	<rule ref="Squiz.PHP.NonExecutableCode"/>
+
+	<rule ref="Squiz.Scope.MemberVarScope"/>
+	<rule ref="Squiz.Scope.MethodScope"/>
+	<rule ref="Squiz.Scope.StaticThisUsage"/>
+
+	<rule ref="Generic.Strings.UnnecessaryStringConcat"/>
+	<rule ref="Squiz.Strings.ConcatenationSpacing">
+		<properties>
+			<property name="spacing" value="1"/>
+			<property name="ignoreNewlines" value="true"/>
+		</properties>
+	</rule>
+	<rule ref="Squiz.Strings.EchoedStrings"/>
+
+	<rule ref="Generic.WhiteSpace.DisallowSpaceIndent"/>
+	<rule ref="Generic.WhiteSpace.ScopeIndent">
+		<properties>
+			<property name="tabIndent" value="true"/>
+		</properties>
+	</rule>
+
+	<rule ref="Generic.Formatting.SpaceAfterCast"/>
+	<rule ref="Squiz.WhiteSpace.CastSpacing"/>
+	<rule ref="Squiz.WhiteSpace.ControlStructureSpacing"/>
+	<rule ref="Squiz.WhiteSpace.FunctionOpeningBraceSpace"/>
+	<rule ref="Squiz.WhiteSpace.FunctionSpacing">
+		<properties>
+			<property name="spacing" value="1"/>
+		</properties>
+	</rule>
+	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
+	<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing">
+		<properties>
+			<property name="ignoreNewlines" value="true"/>
+		</properties>
+	</rule>
+	<rule ref="Squiz.WhiteSpace.PropertyLabelSpacing"/>
+	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
+	<rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing"/>
+	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
+
+</ruleset>

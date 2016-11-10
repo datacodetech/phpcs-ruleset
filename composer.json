@@ -1,0 +1,7 @@
+{
+	"name": "dataplan/code-standard",
+	"version": "0.1",
+	"require-dev": {
+		"squizlabs/php_codesniffer": "~2"
+	}
+}
