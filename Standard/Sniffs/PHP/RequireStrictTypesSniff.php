@@ -2,6 +2,11 @@
 
 declare(strict_types=1);
 
+/**
+ * Checks for declare(strict_types=1) in all php files.
+ *
+ * This only checks for the statemenet existing and not that it has been used correctly
+ */
 class Standard_Sniffs_PHP_RequireStrictTypesSniff implements PHP_CodeSniffer_Sniff {
 
 	public function register() {
