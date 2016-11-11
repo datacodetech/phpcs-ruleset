@@ -25,6 +25,8 @@ class Standard_Sniffs_PHP_RequireStrictTypesSniff implements PHP_CodeSniffer_Sni
 				$phpcsFile->addError('declare strict_types statement not found in file', $stackPtr, 'NoDeclareStrictTypes');
 			}
 		}
+
+		return ($phpcsFile->numTokens + 1);
 	}
 
 }
