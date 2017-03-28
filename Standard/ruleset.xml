@@ -44,6 +44,7 @@
 	<rule ref="./Sniffs/Commenting/FunctionCommentSniff.php"/>
 
 	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
+	<rule ref="Squiz.Operators.ValidLogicalOperators"/>
 	<rule ref="Squiz.ControlStructures.ControlSignature"/>
 	<rule ref="Squiz.ControlStructures.ElseIfDeclaration"/>
 	<rule ref="Squiz.ControlStructures.ForEachLoopDeclaration"/>
