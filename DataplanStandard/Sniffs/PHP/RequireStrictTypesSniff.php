@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+namespace DataplanStandard\Sniffs\PHP;
+
+
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 
@@ -10,7 +13,7 @@ use PHP_CodeSniffer\Files\File;
  *
  * This only checks for the statemenet existing and not that it has been used correctly
  */
-class Standard_Sniffs_PHP_RequireStrictTypesSniff implements Sniff {
+class RequireStrictTypesSniff implements Sniff {
 
 	public function register() {
 		return [

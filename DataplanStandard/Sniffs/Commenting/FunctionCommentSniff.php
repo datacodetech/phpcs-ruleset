@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-use PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting\FunctionCommentSniff;
+namespace DataplanStandard\Sniffs\Commenting;
+
+use PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting\FunctionCommentSniff as SquizFunctionCommentSniff;
 use PHP_CodeSniffer\Files\File;
 use PHP_CodeSniffer\Util\Tokens;
 
@@ -11,7 +13,7 @@ use PHP_CodeSniffer\Util\Tokens;
  *
  * Same as the Squiz standard, but skips validation for @inheritDoc comments
  */
-class Standard_Sniffs_Commenting_FunctionCommentSniff extends FunctionCommentSniff {
+class FunctionCommentSniff extends SquizFunctionCommentSniff {
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
