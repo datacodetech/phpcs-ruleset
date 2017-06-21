@@ -2,12 +2,14 @@
 
 declare(strict_types=1);
 
+use PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting\FunctionCommentSniff;
+
 /**
  * Parses and verifies the doc comments for functions.
  *
  * Same as the Squiz standard, but skips validation for @inheritDoc comments
  */
-class Standard_Sniffs_Commenting_FunctionCommentSniff extends Squiz_Sniffs_Commenting_FunctionCommentSniff {
+class Standard_Sniffs_Commenting_FunctionCommentSniff extends FunctionCommentSniff {
 
 	/**
 	 * Processes this test, when one of its tokens is encountered.
