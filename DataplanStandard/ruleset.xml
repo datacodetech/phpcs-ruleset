@@ -52,6 +52,11 @@
 	<rule ref="Squiz.ControlStructures.InlineIfDeclaration"/>
 	<rule ref="Squiz.ControlStructures.InlineIfDeclaration.NotSingleLine"><severity>0</severity></rule>
 	<rule ref="Squiz.ControlStructures.LowercaseDeclaration"/>
+	<rule ref="Squiz.ControlStructures.SwitchDeclaration"/>
+	<rule ref="Squiz.ControlStructures.SwitchDeclaration.SpacingAfterBreak"><severity>0</severity></rule>
+	<rule ref="Squiz.ControlStructures.SwitchDeclaration.DefaultNoBreak"><severity>0</severity></rule>
+	<rule ref="Squiz.ControlStructures.SwitchDeclaration.MissingDefault"><severity>0</severity></rule>
+	<rule ref="Squiz.ControlStructures.SwitchDeclaration.BreakIndent"><severity>0</severity></rule>
 
 	<rule ref="Generic.Files.ByteOrderMark"/>
 	<rule ref="Generic.Files.LineEndings"/>
@@ -77,6 +82,10 @@
 	<rule ref="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine"><severity>0</severity></rule>
 	<rule ref="Squiz.Functions.FunctionDuplicateArgument"/>
 	<rule ref="Squiz.Functions.LowercaseFunctionKeywords"/>
+	<rule ref="PSR2.Methods.FunctionClosingBrace"/>
+
+	<rule ref="PSR2.Namespaces.NamespaceDeclaration"/>
+	<rule ref="PSR2.Namespaces.UseDeclaration"/>
 
 	<rule ref="Generic.Metrics.NestingLevel">
 		<properties>
@@ -144,6 +153,12 @@
 			<property name="spacing" value="1"/>
 		</properties>
 	</rule>
+	<rule ref="Squiz.WhiteSpace.LanguageConstructSpacing"/>
+	<rule ref="Squiz.WhiteSpace.OperatorSpacing">
+		<properties>
+			<property name="ignoreNewlines" value="true"/>
+		</properties>
+	</rule>
 	<rule ref="Squiz.WhiteSpace.LogicalOperatorSpacing"/>
 	<rule ref="Squiz.WhiteSpace.ObjectOperatorSpacing">
 		<properties>
@@ -153,6 +168,7 @@
 	<rule ref="Squiz.WhiteSpace.PropertyLabelSpacing"/>
 	<rule ref="Squiz.WhiteSpace.ScopeClosingBrace"/>
 	<rule ref="Squiz.WhiteSpace.ScopeKeywordSpacing"/>
+	<rule ref="Squiz.WhiteSpace.SemicolonSpacing"/>
 	<rule ref="Squiz.WhiteSpace.SuperfluousWhitespace"/>
 
 </ruleset>
