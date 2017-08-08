@@ -1,6 +1,10 @@
 {
 	"name": "dataplan/code-standard",
 	"version": "1.1.1",
+	"type": "library",
+	"license": "proprietary",
+	"description": "phpcs ruleset used for all PHP projects",
+	"keywords": [],
 	"require-dev": {
 		"squizlabs/php_codesniffer": "~3"
 	}
