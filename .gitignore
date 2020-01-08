@@ -1,5 +1,2 @@
 # 3rd party libraries
 /vendor
-
-# Composer lock file
-/composer.lock

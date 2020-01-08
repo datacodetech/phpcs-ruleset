@@ -6,6 +6,6 @@
 	"description": "phpcs ruleset used for all PHP projects",
 	"keywords": [],
 	"require-dev": {
-		"squizlabs/php_codesniffer": "~3"
+		"squizlabs/php_codesniffer": "^3.5.3"
 	}
 }
