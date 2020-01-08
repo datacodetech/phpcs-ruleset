@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DataplanStandard\Sniffs\Commenting;
+namespace DatacodeStandard\Sniffs\Commenting;
 
 use PHP_CodeSniffer\Standards\Squiz\Sniffs\Commenting\FunctionCommentSniff as SquizFunctionCommentSniff;
 use PHP_CodeSniffer\Files\File;

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="dataplan">
-	<description>Dataplan code style</description>
+<ruleset name="datacode">
+	<description>Datacode code style</description>
 
 	<arg name="tab-width" value="4" />
 	<arg name="encoding" value="UTF-8" />

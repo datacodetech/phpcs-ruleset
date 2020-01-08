@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace DataplanStandard\Sniffs\PHP;
+namespace DatacodeStandard\Sniffs\PHP;
 
 
 use PHP_CodeSniffer\Sniffs\Sniff;
