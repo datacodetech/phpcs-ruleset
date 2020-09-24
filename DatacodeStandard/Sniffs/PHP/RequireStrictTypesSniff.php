@@ -27,13 +27,20 @@ class RequireStrictTypesSniff implements Sniff {
 		$startPos = $phpcsFile->findNext([ T_DECLARE ], $stackPtr + 1);
 
 		if ($startPos === false) {
-			$phpcsFile->addError('declare statement not found in file', $stackPtr, 'NoDeclare');
+			$phpcsFile->addFixableError('declare statement not found in file', $stackPtr, 'NoDeclare');
+			$phpcsFile->fixer->addContent($stackPtr, 'declare(strict_types=1);');
 		} else {
 			$endPos = $tokens[$startPos]['parenthesis_closer'];
 			$text = $phpcsFile->getTokensAsString($startPos, ($endPos - $startPos + 1));
 
-			if ($text !== 'declare(strict_types=1)') {
-				$phpcsFile->addError('declare strict_types statement not found in file', $stackPtr, 'NoDeclareStrictTypes');
+			if ($text === 'declare(strict_types=0)') {
+				$phpcsFile->addFixableError('declare strict_types statement not found in file', $stackPtr, 'NoDeclareStrictTypes');
+
+				$numberPos = $phpcsFile->findNext([T_LNUMBER], $startPos);
+				$phpcsFile->fixer->replaceToken($numberPos, '1');
+			} else if ($text !== 'declare(strict_types=1)') {
+				$phpcsFile->addFixableError('declare strict_types statement not found in file', $stackPtr, 'NoDeclareStrictTypes');
+				$phpcsFile->fixer->addContentBefore($startPos, 'declare(strict_types=1);');
 			}
 		}
 
