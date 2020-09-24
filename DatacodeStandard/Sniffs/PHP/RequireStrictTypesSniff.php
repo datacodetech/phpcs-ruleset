@@ -34,7 +34,7 @@ class RequireStrictTypesSniff implements Sniff {
 			$text = $phpcsFile->getTokensAsString($startPos, ($endPos - $startPos + 1));
 
 			if ($text === 'declare(strict_types=0)') {
-				$phpcsFile->addFixableError('declare strict_types statement not found in file', $stackPtr, 'NoDeclareStrictTypes');
+				$phpcsFile->addFixableError('declare strict_types is set to false', $stackPtr, 'NoDeclareStrictTypes');
 
 				$numberPos = $phpcsFile->findNext([T_LNUMBER], $startPos);
 				$phpcsFile->fixer->replaceToken($numberPos, '1');
