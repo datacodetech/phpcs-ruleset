@@ -15,6 +15,8 @@ class OpeningBraceSniff implements Sniff {
 	public function register() {
 		return [
 			T_CLASS,
+			T_TRAIT,
+			T_INTERFACE,
 		];
 	}
 
