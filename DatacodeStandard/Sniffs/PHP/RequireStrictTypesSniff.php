@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace DatacodeStandard\Sniffs\PHP;
 
-
 use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 
