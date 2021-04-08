@@ -13,6 +13,7 @@ use PHP_CodeSniffer\Files\File;
  * This only checks for the statemenet existing and not that it has been used correctly
  */
 class RequireStrictTypesSniff implements Sniff {
+
 	public function register() {
 		return [
 			T_OPEN_TAG,

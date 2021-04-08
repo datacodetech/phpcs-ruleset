@@ -11,6 +11,7 @@ use PHP_CodeSniffer\Files\File;
  * Ensures no blank line after class open closure
  */
 class OpeningBraceSniff implements Sniff {
+
 	public function register() {
 		return [
 			T_CLASS,

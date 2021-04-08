@@ -9,10 +9,9 @@ use PHP_CodeSniffer\Files\File;
 
 /**
  * Checks there is a space after a short function (fn)
- *
- * Same as the Squiz standard, but skips validation for @inheritDoc comments
  */
 class ShortFunctionSpacingSniff implements Sniff {
+
 	public function register() {
 		return [
 			T_FN,
