@@ -42,6 +42,7 @@
 	<rule ref="Squiz.Commenting.EmptyCatchComment"/>
 
 	<rule ref="./Sniffs/Commenting/FunctionCommentSniff.php"/>
+	<rule ref="./Sniffs/Functions/ShortFunctionSpacingSniff.php"/>
 
 	<rule ref="Generic.ControlStructures.InlineControlStructure"/>
 	<rule ref="Squiz.Operators.ValidLogicalOperators"/>

@@ -26,7 +26,7 @@ class OpeningBraceSniff implements Sniff {
 	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
 	 * @param integer $stackPtr The position of the current token in the stack passed in $tokens.
 	 *
-	 * @return int
+	 * @return integer
 	 */
 	public function process(File $phpcsFile, $stackPtr) {
 		$tokens = $phpcsFile->getTokens();
