@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Util\Tokens;
  * Same as the Squiz standard, but skips validation for @inheritDoc comments
  */
 class FunctionCommentSniff extends SquizFunctionCommentSniff {
-
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *

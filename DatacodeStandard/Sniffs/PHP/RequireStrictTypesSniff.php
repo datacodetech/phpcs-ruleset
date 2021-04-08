@@ -13,13 +13,20 @@ use PHP_CodeSniffer\Files\File;
  * This only checks for the statemenet existing and not that it has been used correctly
  */
 class RequireStrictTypesSniff implements Sniff {
-
 	public function register() {
 		return [
 			T_OPEN_TAG,
 		];
 	}
 
+	/**
+	 * Processes this test, when one of its tokens is encountered.
+	 *
+	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param integer $stackPtr The position of the current token in the stack passed in $tokens.
+	 *
+	 * @return int
+	 */
 	public function process(File $phpcsFile, $stackPtr) {
 		$tokens = $phpcsFile->getTokens();
 

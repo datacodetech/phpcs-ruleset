@@ -1,6 +1,6 @@
 {
 	"name": "datacodetech/phpcs-ruleset",
-	"version": "2.1.1",
+	"version": "2.2.0",
 	"type": "library",
 	"license": "MIT",
 	"description": "phpcs ruleset used for all PHP projects",
