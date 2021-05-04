@@ -8,7 +8,7 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 use PHP_CodeSniffer\Files\File;
 
 /**
- * Checks there is a space after a short function (fn)
+ * Checks there is a space after a short function (fn) and its arrow
  */
 class ShortFunctionSpacingSniff implements Sniff {
 
@@ -27,35 +27,53 @@ class ShortFunctionSpacingSniff implements Sniff {
 	 * @return integer
 	 */
 	public function process(File $phpcsFile, $stackPtr) {
-		$tokens = $phpcsFile->getTokens();
+		$fnArrow = $phpcsFile->findNext(T_FN_ARROW, $stackPtr);
 
+		$this->whiteSpaceAfter($phpcsFile, $stackPtr);
+		$this->whiteSpaceAfter($phpcsFile, $fnArrow, 'FN Arrow');
+
+		return ($phpcsFile->numTokens + 1);
+	}
+
+	/**
+	 * Processes the white space after FN smell
+	 *
+	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param integer $stackPtr The position of the current token in the stack passed in $tokens.
+	 *
+	 * @return void
+	 */
+	private function whiteSpaceAfter(File $phpcsFile, $stackPtr, $afterType = 'FN'): void {
+		$tokens = $phpcsFile->getTokens();
 		$shouldBeWhiteSpace = $tokens[($stackPtr + 1)];
 
-		if ($shouldBeWhiteSpace['type'] === 'T_OPEN_PARENTHESIS') {
-			if ($tokens[($stackPtr + 1)]['content'] === $phpcsFile->eolChar) {
-				$spaces = 'newline';
-			} else if ($tokens[($stackPtr + 1)]['code'] === T_WHITESPACE) {
-				$spaces = $tokens[($stackPtr + 1)]['length'];
-			} else {
-				$spaces = 0;
-			}
+		if ($shouldBeWhiteSpace['type'] === 'T_WHITESPACE') {
+			return;
+		}
 
-			if ($spaces !== 1) {
-				$error = 'Expected 1 space after FN keyword; %s found';
-				$data = [$spaces];
-				$fix = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceAfterFn', $data);
+		$tokens = $phpcsFile->getTokens();
 
-				if ($fix === true) {
-					if ($spaces === 0) {
-						$phpcsFile->fixer->addContent($stackPtr, ' ');
-					} else {
-						$phpcsFile->fixer->replaceToken(($stackPtr + 1), ' ');
-					}
+		if ($tokens[($stackPtr + 1)]['content'] === $phpcsFile->eolChar) {
+			$spaces = 'newline';
+		} else if ($tokens[($stackPtr + 1)]['code'] === T_WHITESPACE) {
+			$spaces = $tokens[($stackPtr + 1)]['length'];
+		} else {
+			$spaces = 0;
+		}
+
+		if ($spaces !== 1) {
+			$error = "Expected 1 space after {$afterType}; %s found";
+			$data = [$spaces];
+			$fix = $phpcsFile->addFixableError($error, $stackPtr, 'SpaceAfterFn', $data);
+
+			if ($fix === true) {
+				if ($spaces === 0) {
+					$phpcsFile->fixer->addContent($stackPtr, ' ');
+				} else {
+					$phpcsFile->fixer->replaceToken(($stackPtr + 1), ' ');
 				}
 			}
 		}
-
-		return ($phpcsFile->numTokens + 1);
 	}
 
 }
