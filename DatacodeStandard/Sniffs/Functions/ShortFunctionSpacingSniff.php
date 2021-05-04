@@ -40,6 +40,7 @@ class ShortFunctionSpacingSniff implements Sniff {
 	 *
 	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
 	 * @param integer $stackPtr The position of the current token in the stack passed in $tokens.
+	 * @param string $afterType The type char the whitespace should be after to display in the error
 	 *
 	 * @return void
 	 */
