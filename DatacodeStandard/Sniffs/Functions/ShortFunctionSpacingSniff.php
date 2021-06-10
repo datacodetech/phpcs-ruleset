@@ -21,18 +21,16 @@ class ShortFunctionSpacingSniff implements Sniff {
 	/**
 	 * Processes this test, when one of its tokens is encountered.
 	 *
-	 * @param PHP_CodeSniffer_File $phpcsFile The file being scanned.
+	 * @param File $phpcsFile The file being scanned.
 	 * @param integer $stackPtr The position of the current token in the stack passed in $tokens.
 	 *
-	 * @return integer
+	 * @return void
 	 */
 	public function process(File $phpcsFile, $stackPtr) {
 		$fnArrow = $phpcsFile->findNext(T_FN_ARROW, $stackPtr);
 
 		$this->whiteSpaceAfter($phpcsFile, $stackPtr);
 		$this->whiteSpaceAfter($phpcsFile, $fnArrow, 'FN Arrow');
-
-		return ($phpcsFile->numTokens + 1);
 	}
 
 	/**
