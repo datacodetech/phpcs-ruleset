@@ -57,7 +57,7 @@ class CarbonInstansiationSniff implements Sniff {
 
 		if ($firstToken['type'] === 'T_NEW') {
 			$phpcsFile->addError(
-				"Usage of 'new Carbon' is banned. Use the Date facade instead",
+				"Usage of 'new {$className}' is banned. Use the Date facade instead",
 				$stackPtr,
 				'NoNewCarbon',
 			);
@@ -88,7 +88,7 @@ class CarbonInstansiationSniff implements Sniff {
 
 		if ($isStaticMethodCall) {
 			$phpcsFile->addError(
-				"Usage of static methods on Carbon is banned. Use Date facade instead",
+				"Usage of static methods on {$className} is banned. Use Date facade instead",
 				$stackPtr,
 				'NoCarbonStaticMethods',
 			);
