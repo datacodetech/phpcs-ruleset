@@ -1,2 +1,4 @@
 # 3rd party libraries
 /vendor
+
+*.swp
