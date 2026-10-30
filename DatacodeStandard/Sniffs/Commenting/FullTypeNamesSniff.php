@@ -47,7 +47,7 @@ class FullTypeNamesSniff implements Sniff {
 		foreach ($tokens[$stackPtr]['comment_tags'] as $tagPtr) {
 			$tag = $tokens[$tagPtr]['content'];
 
-			if (in_array($tag, ['@param', '@return', '@var'])) {
+			if (!in_array($tag, ['@param', '@return', '@var'], true)) {
 				continue;
 			}
 
